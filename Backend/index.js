@@ -31,10 +31,12 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(cors({
     origin: "http://localhost:5173",
-    credentials: true
+    credentials: true,
+    allowedHeaders: ["Content-Type", "Authorization"]
 }));
+
 app.use(session({
-    secret: "TOPSECRET",
+    secret: "TOP SECRET",
     resave: false,
     saveUninitialized: false,
     cookie: {
