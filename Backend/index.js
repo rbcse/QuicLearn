@@ -30,7 +30,7 @@ app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(cors({
-    origin: "http://localhost:5173",
+    origin: ["http://localhost:5173", "https://cute-biscotti-dac3e1.netlify.app"],
     credentials: true,
     allowedHeaders: ["Content-Type", "Authorization"]
 }));
