@@ -1,8 +1,8 @@
 import User from "./usermodel.js";
 import jwt from "jsonwebtoken";
 const Authenticate = async (req, res, next) => {
+    console.log('Session:', req.session);
     try {
-        console.log(req.session);
         const token = req.session.jwt; 
         if (!token) {
             throw new Error("No token provided");
