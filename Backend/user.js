@@ -43,15 +43,17 @@ const login = async (req, res, next) => {
     // Successfull login
     const token = await userExists.generateToken();
     req.session.jwt = token;
+    console.log("Login",req.session);
     return res.status(200).json({message : "Login Successful" , token : token});
     
 }
 
 const authorizeUser = async(req,res) => {
     const userDetails = [];
+    console.log(req.rootUser);
     userDetails.push(req.rootUser.name);
     userDetails.push(req.rootUser.email);
-    return res.status(200).json({username : req.rootUser.name , useremail : req.rootUser.email , userDetails:userDetails});
+    return res.status(200).json({username : req.rootUser[0].name , useremail : req.rootUser[0].email , userDetails:userDetails});
 }
 
 const getUserDetailsforProfile = async (req,res) => {
